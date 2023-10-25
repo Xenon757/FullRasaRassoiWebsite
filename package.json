@@ -1,5 +1,16 @@
 {
   "dependencies": {
     "framer-motion": "^10.16.4"
+  },
+  "name": "your-project-name",
+  "version": "1.0.0",
+  "description": "Your project description",
+  "scripts": {
+    "start-frontend": "cd rasa-frontend/frontendv2 && npm start",
+    "start-server": "cd rasa-frontend/server && node index.js",
+    "start-all": "concurrently \"yarn start-frontend\" \"yarn start-server\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }
