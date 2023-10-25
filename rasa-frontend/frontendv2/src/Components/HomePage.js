@@ -43,7 +43,12 @@ const HomePage = ({ makeOrder }) => {
               initial={{ opacity: 0 }}
               animate={{ y: [125, 0], opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ type: "spring", bounce: 0.6, duration: 1.5 }}
+              transition={{
+                type: "spring",
+                bounce: 0.6,
+                duration: 1.5,
+                delay: 0.5,
+              }}
             >
               Welcome to
             </motion.div>
@@ -59,7 +64,7 @@ const HomePage = ({ makeOrder }) => {
                 type: "spring",
                 bounce: 0.6,
                 duration: 1.5,
-                delay: 0.1,
+                delay: 0.6,
               }}
               className="h-[400px] mt-[10px]"
             ></motion.img>
@@ -75,7 +80,7 @@ const HomePage = ({ makeOrder }) => {
                   type: "spring",
                   bounce: 0.5,
                   duration: 1.25,
-                  delay: 0.6,
+                  delay: 1.1,
                 }}
                 style={{
                   color: signUpColor,
@@ -103,7 +108,7 @@ const HomePage = ({ makeOrder }) => {
                   type: "spring",
                   bounce: 0.5,
                   duration: 1.25,
-                  delay: 0.7,
+                  delay: 1.2,
                 }}
                 style={{
                   color: orderColor,
@@ -134,7 +139,7 @@ const HomePage = ({ makeOrder }) => {
                   type: "spring",
                   bounce: 0.5,
                   duration: 1.25,
-                  delay: 0.8,
+                  delay: 1.3,
                 }}
                 style={{
                   color: logInColor,
@@ -165,7 +170,7 @@ const HomePage = ({ makeOrder }) => {
                   type: "spring",
                   bounce: 0.5,
                   duration: 1.25,
-                  delay: 0.05,
+                  delay: 0.55,
                 }}
               >
                 <motion.img
@@ -187,7 +192,7 @@ const HomePage = ({ makeOrder }) => {
                 type: "spring",
                 bounce: 0.5,
                 duration: 1.25,
-                delay: 0.1,
+                delay: 0.6,
               }}
             ></motion.img>
           </AnimatePresence>
@@ -198,7 +203,7 @@ const HomePage = ({ makeOrder }) => {
                 type: "spring",
                 bounce: 0.5,
                 duration: 1.25,
-                delay: 0.6,
+                delay: 1.1,
               }}
             >
               <a href="https://www.youtube.com/channel/UCV_aFDvpk4tYw0zTr4mrJ7Q">
