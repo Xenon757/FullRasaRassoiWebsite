@@ -6,11 +6,13 @@
   "version": "1.0.0",
   "description": "Your project description",
   "scripts": {
+    "install-frontend-deps": "cd rasa-frontend/frontendv2 && npm install",
+    "install-server-deps": "cd rasa-frontend/server && npm install",
     "start-frontend": "cd rasa-frontend/frontendv2 && npm start",
     "start-server": "cd rasa-frontend/server && node index.js",
-    "start-all": "concurrently \"yarn start-frontend\" \"yarn start-server\""
+    "start-all": "yarn install-frontend-deps && yarn install-server-deps && concurrently \"yarn start-frontend\" \"yarn start-server\""
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^6.2.2"
   }
 }
