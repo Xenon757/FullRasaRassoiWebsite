@@ -10,7 +10,7 @@
     "install-server-deps": "cd rasa-frontend/server && npm install",
     "start-frontend": "cd rasa-frontend/frontendv2 && npm start",
     "start-server": "cd rasa-frontend/server && node index.js",
-    "start-all": "yarn install-frontend-deps && yarn install-server-deps && concurrently \"yarn start-frontend\" \"yarn start-server\""
+    "start-all": "yarn install-frontend-deps && concurrently \"yarn start-frontend\""
   },
   "devDependencies": {
     "concurrently": "^6.2.2"
