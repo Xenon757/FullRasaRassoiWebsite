@@ -28,6 +28,188 @@ const HomePage = ({ makeOrder }) => {
   const [orderColor, setOrder] = useState("black");
   const [logInColor, setLogIn] = useState("black");
 
+  return width < 900 ? <MobileView></MobileView> : <DesktopView></DesktopView>;
+};
+
+const MobileView = ({ makeOrder }) => {
+  const [rotate, setRotate] = useState(false);
+
+  const [height, setHeight] = useState(window.innerHeight);
+  const [width, setWidth] = useState(window.innerWidth);
+
+  const updateWindowDimensions = () => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  };
+
+  useEffect(() => {
+    // Add event listener for window resize
+    window.addEventListener("resize", updateWindowDimensions);
+
+    // Remove the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", updateWindowDimensions);
+    };
+  }, []); // Empty dependency array to run this effect only once
+
+  const [signUpColor, setSignUp] = useState("black");
+  const [orderColor, setOrder] = useState("black");
+  const [logInColor, setLogIn] = useState("black");
+
+  return (
+    <div className="flex h-screen items-center w-screen bg-gradient-to-r from-rose-100 to-teal-100">
+      <div className="m-auto">
+        <AnimatePresence>
+          <motion.div
+            className="text-center font-caveat text-4xl relative top-[-40px]"
+            initial={{ opacity: 0 }}
+            animate={{ y: [125, 0], opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{
+              type: "spring",
+              bounce: 0.6,
+              duration: 1.5,
+              delay: 0.5,
+            }}
+          >
+            Welcome to
+          </motion.div>
+        </AnimatePresence>
+        <AnimatePresence>
+          <motion.img
+            src={require("./Rasa_Sweets-removebg-preview (1).png")}
+            alt="RASA RASOI"
+            initial={{ opacity: 0 }}
+            animate={{ y: [125, 0], opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{
+              type: "spring",
+              bounce: 0.6,
+              duration: 1.5,
+              delay: 0.6,
+            }}
+            className="h-[20%] mt-[10px]"
+          ></motion.img>
+        </AnimatePresence>
+        <div className="text-center relative bottom-[-20px] mt-[20px]">
+          <AnimatePresence>
+            <motion.div
+              className="text-center font-caveat text-3xl mt-[10px]"
+              initial={{ opacity: 0 }}
+              animate={{ y: [75, 0], opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{
+                type: "spring",
+                bounce: 0.5,
+                duration: 1.25,
+                delay: 1.1,
+              }}
+              style={{
+                color: signUpColor,
+                textDecoration: signUpColor == "blue" ? "underline" : "none",
+              }}
+              onHoverStart={() => {
+                setSignUp("blue");
+              }}
+              onHoverEnd={() => {
+                setSignUp("black");
+              }}
+            >
+              <motion.h1 whileHover={{ scale: 1.1, opacity: 1 }}>
+                Sign up
+              </motion.h1>
+            </motion.div>
+          </AnimatePresence>
+          <AnimatePresence>
+            <motion.div
+              className="text-center font-caveat text-3xl p-0 mt-[10px]"
+              initial={{ opacity: 0 }}
+              animate={{ y: [75, 0], opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{
+                type: "spring",
+                bounce: 0.5,
+                duration: 1.25,
+                delay: 1.2,
+              }}
+              style={{
+                color: orderColor,
+                textDecoration: orderColor == "blue" ? "underline" : "none",
+              }}
+              onHoverStart={() => {
+                setOrder("blue");
+              }}
+              onHoverEnd={() => {
+                setOrder("black");
+              }}
+            >
+              <motion.h1
+                whileHover={{ scale: 1.1, opacity: 1 }}
+                onClick={makeOrder}
+              >
+                Make an order
+              </motion.h1>
+            </motion.div>
+          </AnimatePresence>
+          <AnimatePresence>
+            <motion.div
+              className="text-center font-caveat text-3xl p-0 mt-[10px]"
+              initial={{ opacity: 0 }}
+              animate={{ y: [75, 0], opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{
+                type: "spring",
+                bounce: 0.5,
+                duration: 1.25,
+                delay: 1.3,
+              }}
+              style={{
+                color: logInColor,
+                textDecoration: logInColor == "blue" ? "underline" : "none",
+              }}
+              onHoverStart={() => {
+                setLogIn("blue");
+              }}
+              onHoverEnd={() => {
+                setLogIn("black");
+              }}
+            >
+              <motion.h1 whileHover={{ scale: 1.1, opacity: 1 }}>
+                Log in
+              </motion.h1>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const DesktopView = ({ makeOrder }) => {
+  const [rotate, setRotate] = useState(false);
+
+  const [height, setHeight] = useState(window.innerHeight);
+  const [width, setWidth] = useState(window.innerWidth);
+
+  const updateWindowDimensions = () => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  };
+
+  useEffect(() => {
+    // Add event listener for window resize
+    window.addEventListener("resize", updateWindowDimensions);
+
+    // Remove the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", updateWindowDimensions);
+    };
+  }, []); // Empty dependency array to run this effect only once
+
+  const [signUpColor, setSignUp] = useState("black");
+  const [orderColor, setOrder] = useState("black");
+  const [logInColor, setLogIn] = useState("black");
+
   return (
     <div className="flex h-screen items-center w-screen bg-gradient-to-r from-rose-100 to-teal-100">
       <div
@@ -55,7 +237,7 @@ const HomePage = ({ makeOrder }) => {
           </AnimatePresence>
           <AnimatePresence>
             <motion.img
-              src={require("./Rasa_Sweets-removebg-preview (1).png")}
+              src={require("./Rasa_Sweets-DesktopView.png")}
               alt="RASA RASOI"
               initial={{ opacity: 0 }}
               animate={{ y: [125, 0], opacity: 1 }}
